@@ -1,5 +1,10 @@
+//moves left on every block starting from left to right
 Game.prototype.moveLeft = function(){
   var original = this.array.slice();
+  
+  for (i = 0; i < 16; i++) {
+    this.array[i] = parseInt(this.array[i])
+  }
   for (i = 0; i < 16; i++) {
     this.checkNextBlock(i)
   }
@@ -7,12 +12,14 @@ Game.prototype.moveLeft = function(){
   this.generateBlock()
 }
 
+//transposes the array, moves left, then transposes it back
 Game.prototype.moveRight = function(){
   this.transposeForRight();
   this.moveLeft();
   this.transposeForRight()
 }
 
+//same as above
 Game.prototype.moveUp = function(){
   this.transposeForUp();
   this.moveLeft();
